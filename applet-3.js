@@ -50,4 +50,7 @@ class DataLogger {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    new DataLogger('logButton', 'cardContainer', 'clearButton', 'logCount'); 
+});
 
