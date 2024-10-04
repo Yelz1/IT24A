@@ -16,4 +16,9 @@ class DataLogger {
         this.updateCardContainer();
     }
 
+    clearLogs() {
+        this.loggedData = []; 
+        this.updateCardContainer(); 
+    }
+
 }
