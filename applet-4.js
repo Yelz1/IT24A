@@ -62,4 +62,63 @@ class LeafletMap {
         })
         .catch(error => console.error("Error Loading servers:", error));
     }
-}   
+
+    clearLogs(){
+        this.attendanceCountSC = 0;
+        this.attendanceCountBA = 0;
+        this.attendanceCountLab = 0;
+        this.attendanceCountLab2 = 0;
+
+        this.loggedData = [];
+        this.markerCounts = {}; 
+        this.markers.forEach(marker => {
+            const message = marker.getPopup().getContent().split('<br>')[0]; 
+            this.markerCounts[message] = 0;
+            this.updateMarkerPopup(marker, message); 
+        });
+
+        this.updateLogDisplay();
+    }
+
+    displayLogCount() {      
+        this.logCountElement.innerHTML = `SC Building Attendance: ${this.attendanceCountSC}`;
+        this.logCount1Element.innerHTML = `BA Building Attendance: ${this.attendanceCountBA}`;
+        this.logCount2Element.innerHTML = `CCS Laboratory Attendance: ${this.attendanceCountLab}`;
+}
+
+    dataSc() {
+        this.addMarker(8.360238, 124.867470, 'SC building');
+        this.attendanceCountSC++; 
+        this.updateLogDisplay();
+    }
+
+    dataBa() {
+        this.addMarker(8.359134, 124.868537, 'BA building');
+        this.attendanceCountBA++;
+        this.updateLogDisplay();
+    }
+    
+    dataLab() {
+        this.addMarker(8.359639, 124.869179, 'CCS Laboratory 1');
+        this.attendanceCountLab++;
+        this.updateLogDisplay();
+    }
+
+    dataLab2() { 
+        this.addMarker(8.359300, 124.869500, 'Laboratory 2');
+        this.attendanceCountLab2++;
+        this.updateLogDisplay();
+    }
+
+    updateLogDisplay() {
+        this.idContainer.innerHTML = ''; 
+        this.loggedData.forEach(data => {
+            const logItem = document.createElement('div');
+            logItem.className = 'log-item';
+            this.idContainer.appendChild(logItem);
+        });
+        this.displayLogCount();
+    }
+
+}
+const Mymap = new LeafletMap('map', [8.359735, 124.869206], 18);
