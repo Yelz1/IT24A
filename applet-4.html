@@ -13,7 +13,7 @@
 
     <style>
       body{
-          background-color: rgb(156, 175, 173);
+          background-color: rgb(120, 202, 194);
           color: white;
       }
       .container{
@@ -31,7 +31,7 @@
       .btn-container{
         justify-items: auto;
         margin-top: 2rem;
-        background: linear-gradient(to top right, rgb(0, 0, 0), rgb(1, 1, 43)) ;
+        background: linear-gradient(to top right, rgb(47, 105, 212), rgb(230, 54, 54)) ;
         border-radius: 15px;
         padding: 3rem;
       }
@@ -46,50 +46,55 @@
       .btn-container #btnclear {
          margin-left: 15rem;
       }
-      
+  
   </style>
 
 </head>
 
-    <!-- Navbar content -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>           
+<nav class="navbar" style="background-color: #d2e2ee;">
+  <!-- Navbar content -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="applet-3.html">Event Logger</a></li>
+              <li><a class="dropdown-item" href="applet-4.html">Leaflet and Open</a></li>
+              <li><a class="dropdown-item" href="#">Others</a></li>
             </ul>
-          </div>
-        </div>
-      </nav>
+          </li>
+        </ul>
+      </div>
+    </div>  
+  </nav>
+</nav>
 
 <body>
 
-    <div class="container">
-        <h2>Leaflet Map</h2>
-        <div id="map"></div>
-        <div class="btn-container">
-          <h4 id="logCount">Attendance Count: </h4>
-          <button class="btn btn-primary" id="btn">SC Building</button>
-              <h4 id="logCountCCS">Attendance Count: </h4>
-              <button class="btn btn-primary" id="btn1">CSS Laboratory 1</button>
-                   <h4 id="logCountCCS">Attendance Count: </h4>
-                   <button class="btn btn-primary" id="btn2">CSS Laboratory 2</button>
-                       <h4 id="logCountBA">Attendance Count: </h4>
-                       <button class="btn btn-primary" id="btn3">BA building</button>
-                           <div id="logContainer"></div> 
-                           <button class="btn btn-primary" id="btnclear">Clear</button>
-        </div>
-          
+  <div class="container">
+    <h2>Leaflet Map</h2>
+    <div id="map"></div>
+    <div class="btn-container">
+        <h4 id="logCountSC">SC Attendance Count: </h4>
+        <button class="btn btn-primary" id="btn">SC Building</button>
+        <h4 id="logCountBA">BA Attendance Count: </h4>
+        <button class="btn btn-primary" id="btn1">BA Building</button>
+        <h4 id="logCountLab1">Laboratory 1 Attendance Count: </h4>
+        <button class="btn btn-primary" id="btn2">Laboratory 1</button>
+        <h4 id="logCountLab2">Laboratory 2 Attendance Count: </h4>
+        <button class="btn btn-primary" id="btn3">Laboratory 2</button>
+        <div id="logContainer"></div> 
+        <button class="btn btn-primary" id="btnclear">Clear</button>
     </div>
+</div>
     
 </body>
 <script src="applet-4.js"></script>

@@ -6,7 +6,7 @@ class LeafletMap {
 
         this.attendanceCountSC = 0;
         this.attendanceCountBA = 0;
-        this.attendanceCountLab = 0;
+        this.attendanceCountLab1 = 0;
         this.attendanceCountLab2 = 0;
 
 
@@ -21,14 +21,15 @@ class LeafletMap {
         this.btn3 = document.getElementById('btn3'); 
         this.btnclear = document.getElementById('btnclear');
         this.logCountElement = document.getElementById('logCount');
-        this.logCount1Element = document.getElementById('logCountBA');
-        this.logCount2Element = document.getElementById('logCountCCS');
-        this.logCountLab2Element = document.getElementById('logCountLab2');
+        this.logCount1Element = document.getElementById('logCountSC');
+        this.logCount2Element = document.getElementById('logCountBA');
+        this.logCount3Element = document.getElementById('logCountLab1');
+        this.logCount4Element = document.getElementById('logCountLab2');
         this.idContainer = document.getElementById('logContainer');
 
         this.btn.addEventListener('click', () => this.dataSc());
-        this.btn1.addEventListener('click', () => this.dataLab());
-        this.btn2.addEventListener('click', () => this.dataBa());
+        this.btn1.addEventListener('click', () => this.dataBa());
+        this.btn2.addEventListener('click', () => this.dataLab1());
         this.btn3.addEventListener('click', () => this.dataLab2());
         this.btnclear.addEventListener('click', () => this.clearLogs());
     }
@@ -36,7 +37,7 @@ class LeafletMap {
     initTileLayer() {
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Sample for new corales BSIT student'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Sample for BSIT student'
         }).addTo(this.map);
     }
     
@@ -44,6 +45,12 @@ class LeafletMap {
         const marker = L.marker([lat, long]).addTo(this.map)
         this.markerCounts[message] = (this.markerCounts[message] || 0) + 1;
         this.updateMarkerPopup(marker, message);
+        this.markers.push(marker); 
+        marker.on('click', () => {
+            this.markerCounts[message]++;
+            this.updateMarkerPopup(marker, message);
+        });
+
         this.markers.push(marker);
     }
 
@@ -66,7 +73,7 @@ class LeafletMap {
     clearLogs(){
         this.attendanceCountSC = 0;
         this.attendanceCountBA = 0;
-        this.attendanceCountLab = 0;
+        this.attendanceCountLab1 = 0;
         this.attendanceCountLab2 = 0;
 
         this.loggedData = [];
@@ -75,38 +82,45 @@ class LeafletMap {
             const message = marker.getPopup().getContent().split('<br>')[0]; 
             this.markerCounts[message] = 0;
             this.updateMarkerPopup(marker, message); 
-        });
+
+        }); 
 
         this.updateLogDisplay();
     }
 
     displayLogCount() {      
-        this.logCountElement.innerHTML = `SC Building Attendance: ${this.attendanceCountSC}`;
-        this.logCount1Element.innerHTML = `BA Building Attendance: ${this.attendanceCountBA}`;
-        this.logCount2Element.innerHTML = `CCS Laboratory Attendance: ${this.attendanceCountLab}`;
-}
+        this.logCount1Element.innerHTML = `SC Building Attendance: ${this.attendanceCountSC}`;
+        this.logCount2Element.innerHTML = `BA Building Attendance: ${this.attendanceCountBA}`;
+        this.logCount3Element.innerHTML = `Laboratory 1 Attendance: ${this.attendanceCountLab1}`;
+        this.logCount4Element.innerHTML = `Laboratory 2 Attendance: ${this.attendanceCountLab2}`;
+    }
+
 
     dataSc() {
         this.addMarker(8.360238, 124.867470, 'SC building');
         this.attendanceCountSC++; 
+        this.loggedData.push('SC building');
         this.updateLogDisplay();
     }
 
     dataBa() {
         this.addMarker(8.359134, 124.868537, 'BA building');
         this.attendanceCountBA++;
+        this.loggedData.push('BA building');
         this.updateLogDisplay();
     }
     
-    dataLab() {
+    dataLab1() {
         this.addMarker(8.359639, 124.869179, 'CCS Laboratory 1');
-        this.attendanceCountLab++;
+        this.attendanceCountLab1++;
+        this.loggedData.push('CCS Laboratory 1');
         this.updateLogDisplay();
     }
 
     dataLab2() { 
-        this.addMarker(8.359300, 124.869500, 'Laboratory 2');
+        this.addMarker(8.359500, 124.869100, 'Laboratory 2');
         this.attendanceCountLab2++;
+        this.loggedData.push('Laboratory 2');
         this.updateLogDisplay();
     }
 
@@ -116,16 +130,17 @@ class LeafletMap {
             const logItem = document.createElement('div');
             logItem.className = 'log-item';
             this.idContainer.appendChild(logItem);
-        });
+
+            });
+
         this.displayLogCount();
     }
 
 }
 const Mymap = new LeafletMap('map', [8.359735, 124.869206], 18);
 
-Mymap.loadMarkersFromJson('applet-2.json');
+
 
     document.addEventListener('DOMContentLoaded', () => {
         Mymap.displayLogCount();
-        Mymap.loadMarkersFromJson('applet-2.json');
     });

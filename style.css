@@ -1,11 +1,20 @@
 form{
-    margin-top: 3%;
+    margin-top: 2%;
     width: 50%;
     margin-left: 25%;
 }
 .card{
     margin-top: 8%;
+    margin-left: 8%;
+    align-content: center;
+    justify-content: center;
 }
 body{
-    background-color: rgb(42, 204, 204);
+    background-color: rgb(105, 192, 192);
+}
+.h3 {
+    margin-top: 3%;
+    align-content: center;
+    justify-content: center;
+    margin-left: 29rem;
 }
