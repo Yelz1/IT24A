@@ -28,7 +28,7 @@
                 <li><a class="dropdown-item" href="applet-4.html">Applet 2</a></li>
                 <li><a class="dropdown-item" href="applet-3.html">Applet 3</a></li>
                 <li><a class="dropdown-item" href="applet-5.html">Applet 5</a></li>
-                <li><a class="dropdown-item" href="">Applet 6</a></li>
+                <li><a class="dropdown-item" href="applet-6.html">Applet 6</a></li>
               </ul>
               </ul>
             </li>
@@ -39,6 +39,27 @@
   </nav>
 
 <body>
+
     
+    <div class="container">
+        <h1>Weather App</h1>
+
+        <!--Textbox-->
+        <input type="text" id="cityInput" placeholder="Enter city name" />
+        <button id="getWeatherBtn" class="btn btn-primary">Get Weather</button>
+
+        <!--Via Geolocation-->
+        <button id="getLocationBtn" class="btn btn-secondary">Use My Location</button>
+        
+        <div id="weatherCard" class="weather-card" style="display: none;">
+            <br>
+            <h2 id="cityName"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <p id="humidity"></p>
+            <p id="windSpeed"></p>
+        </div>
+    </div>
+
 </body>
 </html>
