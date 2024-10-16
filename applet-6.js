@@ -71,7 +71,7 @@ class WeatherService extends WeatherApp {
 
     async getWeatherData(city) {
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`);
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${"Libona"}&appid=${this.apiKey}&units=metric`);
             if (response.ok) {
                 return await response.json();
             }
@@ -83,7 +83,7 @@ class WeatherService extends WeatherApp {
 
     async getWeatherDataByCoordinates(latitude, longitude) {
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`);
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${"8.333181"}&lon=${"124.746952"}&appid=${this.apiKey}&units=metric`);
             if (response.ok) {
                 return await response.json();
             }
@@ -95,5 +95,5 @@ class WeatherService extends WeatherApp {
   
 }
 
-const apiKey = ''; 
+const apiKey = '115b4fd6c01d3095390cf00c615a7ada'; 
 const weatherApp = new WeatherService(apiKey);
