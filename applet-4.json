@@ -1,26 +1,21 @@
 [
     {
-        "latitude": 8.360238,
-        "longitude" : 124.867470,
-        "message" : "SC building"
+      "student_id": 1,
+      "student_name": "John Doe",
+      "student_program": "BS-Computer Science",
+      "student_enrolled_date": "2023-01-15"
     },
-      
     {
-        "latitude": 8.359639,
-        "longitude" : 124.869179,
-        "message" : "Laboratory 1"
+      "student_id": 2,
+      "student_name": "Jane Smith",
+      "student_program": "BS-Computer Engineering",
+      "student_enrolled_date": "2023-02-20"
     },
-
-    
     {
-         "latitude": 8.359639,
-        "longitude" : 124.869153,
-        "message" : "Laboratory 2"
-    },
-
-    {
-        "latitude": 8.359134,
-        "longitude" : 124.868537,
-        "message" : "BA building"
+      "student_id": 3,
+      "student_name": "Bob Johnson",
+      "student_program": "BS - Information Technology",
+      "student_enrolled_date": "2023-03-10"
     }
-]
+  ]
+  
