@@ -107,3 +107,9 @@ class WeatherApp {
         return null;
     }
 }    
+
+
+const weatherApp = new WeatherService();
+
+
+
