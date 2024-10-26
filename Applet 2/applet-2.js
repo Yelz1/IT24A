@@ -144,6 +144,6 @@ Mymap.loadMarkersFromJson('applet-4.json');
 
     document.addEventListener('DOMContentLoaded', () => {
         Mymap.displayLogCount();
-        Mymap.loadMarkersFromJson('applet-4.json');
+        Mymap.loadMarkersFromJson('applet-2.json');
 
     });
