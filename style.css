@@ -18,3 +18,11 @@ body{
     justify-content: center;
     margin-left: 29rem;
 }
+card {
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover, .card.highlight {
+    box-shadow: 0 0 10px rgba(0, 104, 214, 0.5);
+    transform: scale(1.05);
+}
